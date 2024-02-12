@@ -1,0 +1,14 @@
+//+-------------------------------------------------------------------------------------------+
+//| Indicator De-initialization                                                               |
+//+-------------------------------------------------------------------------------------------+
+int deinit()
+  {
+  obj_total= ObjectsTotal();
+  for(k= obj_total; k>=0; k--)
+    {
+    name= ObjectName(k);
+    if(StringSubstr(name,0,3)=="[CP" || StringSubstr(name,1,3)=="[CP") {ObjectDelete(name);}
+    }
+  //Comment("");
+  return(0);
+  }
