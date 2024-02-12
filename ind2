@@ -1,0 +1,63 @@
+/| Indicator Initialization                                                                  |
+//+-------------------------------------------------------------------------------------------+
+int init()
+  {
+  //With the first DLL call below, the program will exit (and stop) automatically after one alert.
+  if(!IsDllsAllowed() )
+    {
+    Alert(Symbol()," ",Period(),", Access Panel: Allow DLL Imports"); return(false);
+    }
+
+  //Be sure broker server equivalent time is properly input
+  if((Clock_Proxy_Server_Tz_Location!="Auckland") && (Clock_Proxy_Server_Tz_Location!="Sydney") &&
+     (Clock_Proxy_Server_Tz_Location!="Tokyo") && (Clock_Proxy_Server_Tz_Location!="HongKong") &&
+     (Clock_Proxy_Server_Tz_Location!="Jakarta") && (Clock_Proxy_Server_Tz_Location!="India") &&
+     (Clock_Proxy_Server_Tz_Location!="Dubai") && (Clock_Proxy_Server_Tz_Location!="Moscow") &&
+     (Clock_Proxy_Server_Tz_Location!="Israel") && (Clock_Proxy_Server_Tz_Location!="Helsinki") &&
+     (Clock_Proxy_Server_Tz_Location!="Frankfurt") && (Clock_Proxy_Server_Tz_Location!="London") &&
+     (Clock_Proxy_Server_Tz_Location!="GMT") && (Clock_Proxy_Server_Tz_Location!="Brazil") &&
+     (Clock_Proxy_Server_Tz_Location!="NewYork") && (Clock_Proxy_Server_Tz_Location!="Central") &&
+     (Clock_Proxy_Server_Tz_Location!="Mexico") && (Clock_Proxy_Server_Tz_Location!="Mountain") &&
+     (Clock_Proxy_Server_Tz_Location!="Pacific"))
+    {
+    Alert(Symbol()," ",Period(),", Access: Preface valid input req'd"); return(false);
+    } 
+
+  //Determine the current chart scale (chart scale number should be 0-5)
+  Chart_Scale = ChartScaleGet();
+ 
+  //Reset to Signal State of Non-deinitialization
+  Deinitialized = false;
+
+  //Panel - determine display of Market Price
+  if(Digits == 5 || Digits == 3) {Factor = 10;}
+  else {Factor = 1;}
+
+  //Panel, Bid/Ask Lines, Levels and Ranges - Set Poin values
+  if(Point == 0.0001) {Poin = Point;} //4 digits
+  else {Poin = Point*10;}  //2,3,5 digits
+  if((StringSubstr(Symbol(),0,6)=="XAUUSD")||(StringSubstr(Symbol(),0,4)=="GOLD")) {Poin=0.1;}
+  Poin2 = Point;
+  if(__Incr_Decr_Levels_Density>0) {Poin=Poin*MathPow(2,MathAbs(__Incr_Decr_Levels_Density));}
+  if(__Incr_Decr_Levels_Density<0) {Poin=Poin/MathPow(2,MathAbs(__Incr_Decr_Levels_Density));}
+
+  //Levels - set ranges for chart TFs
+        if(Period() == 1) {NumberOfRanges = 4;}
+  else {if(Period() == 5) {NumberOfRanges = 7;}
+  else {if(Period() == 15) {NumberOfRanges = 15;}
+  else {if(Period() == 30) {NumberOfRanges = 15;}
+  else {if(Period() == 60) {NumberOfRanges = 20;}
+  else {if(Period() == 240) {NumberOfRanges = 30;}
+  else {if(Period() == 1440) {NumberOfRanges = 60;}
+  else {if(Period() == 10080) {NumberOfRanges = 70;}
+  else {if(Period() == 43200) {NumberOfRanges = 60;} }}}}}}}}
+
+  //Import Time Zone Data  required for Clock, PivotsTZ and vLines
+  GetTimeZoneInfo(AucklandTZInfoArray, SydneyTZInfoArray, TokyoTZInfoArray,
+    ChinaTZInfoArray, JakartaTZInfoArray, IndiaTZInfoArray, DubaiTZInfoArray,
+    MoscowTZInfoArray, IsraelTZInfoArray, HelsinkiTZInfoArray, BerlinTZInfoArray,
+    LondonTZInfoArray, BrazilTZInfoArray, NewYorkTZInfoArray, CentralTZInfoArray,
+    MexicoTZInfoArray, MountainTZInfoArray, PacificTZInfoArray);
+
+  return(0);
+  }
