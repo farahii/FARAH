@@ -42,14 +42,14 @@ int init()
   if(__Incr_Decr_Levels_Density<0) {Poin=Poin/MathPow(2,MathAbs(__Incr_Decr_Levels_Density));}
 
   //Levels - set ranges for chart TFs
-        if(Period() == 1) {NumberOfRanges = 4;}
-  else {if(Period() == 5) {NumberOfRanges = 7;}
-  else {if(Period() == 15) {NumberOfRanges = 15;}
-  else {if(Period() == 30) {NumberOfRanges = 15;}
-  else {if(Period() == 60) {NumberOfRanges = 20;}
-  else {if(Period() == 240) {NumberOfRanges = 30;}
-  else {if(Period() == 1440) {NumberOfRanges = 60;}
-  else {if(Period() == 10080) {NumberOfRanges = 70;}
+        if(Period() == 1) {NumberOfRanges = 14;}
+  else {if(Period() == 5) {NumberOfRanges = 71;}
+  else {if(Period() == 15) {NumberOfRanges = 151;}
+  else {if(Period() == 30) {NumberOfRanges = 115;}
+  else {if(Period() == 60) {NumberOfRanges = 201;}
+  else {if(Period() == 240) {NumberOfRanges = 310;}
+  else {if(Period() == 1440) {NumberOfRanges = 610;}
+  else {if(Period() == 10080) {NumberOfRanges = 710;}
   else {if(Period() == 43200) {NumberOfRanges = 60;} }}}}}}}}
 
   //Import Time Zone Data  required for Clock, PivotsTZ and vLines
