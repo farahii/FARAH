@@ -1,0 +1,45 @@
+double wclose= 0;
+double wopen = 0;
+double whigh = 0;
+double wlow=0;
+//--
+double calPivot = 0;
+double calRange = 0;
+//--
+double R38  = 0;
+double R61  = 0;
+double R78  = 0;
+double R100 = 0;
+double R138 = 0;
+double R161 = 0;
+double R200 = 0;
+//--
+double S38  = 0;
+double S61  = 0;
+double S78  = 0;
+double S100 = 0;
+double S138 = 0;
+double S161 = 0;
+double S200 = 0;
+//--
+double R1 = 0;
+double R2 = 0;
+double R3 = 0;
+double S1 = 0;
+double S2 = 0;
+double S3 = 0;
+//--
+int    chose_tf;
+string lableR38;
+string lableR61;
+string lableR78;
+string lableR100;
+string lableS38;
+string lableS61;
+string lableS78;
+string lableS100;
+datetime weekOpen;
+datetime weekClose;
+int z,weekCount = 0;
+
+double diffGMT;
