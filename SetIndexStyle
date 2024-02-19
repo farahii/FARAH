@@ -1,0 +1,15 @@
+int init()
+{
+   TimeFrame = MathMax(TimeFrame,_Period);
+   IndicatorBuffers(8);
+   SetIndexBuffer(0,b1); SetIndexStyle(0,DRAW_ARROW); SetIndexArrow(0,164);
+   SetIndexBuffer(1,b2); SetIndexStyle(1,DRAW_ARROW); SetIndexArrow(1,164);
+   SetIndexBuffer(2,b3); SetIndexStyle(2,DRAW_ARROW); SetIndexArrow(2,164);
+   SetIndexBuffer(3,b4); SetIndexStyle(3,DRAW_ARROW); SetIndexArrow(3,164);
+   SetIndexBuffer(4,b5); SetIndexLabel(4,"Upper weak channel");
+   SetIndexBuffer(5,b6); SetIndexLabel(5,"Lower weak channel");
+   SetIndexBuffer(6,b7); SetIndexLabel(6,"Upper Main channel");
+   SetIndexBuffer(7,b8); SetIndexLabel(7,"Lower Main channel");
+   IndicatorShortName(timeFrameToString(TimeFrame)+" Super-signals ("+PeriodWeakChannel+","+PeriodMainChannel+")");
+   return(0);
+}
