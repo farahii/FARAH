@@ -26,3 +26,15 @@
    return(0);
 }
 
+    // up
+        if (   Close[i+1]<Open[i+2]&&
+               Close[i+2]>Open[i+2]&&
+               High[i+2]<  High[i+2]&&
+               Low[i+2] > Low[i+1]
+           )
+           {                               
+		      Dn[i+1]=High[i+1]+Range*1.2;
+		     } 		          
+           
+   }
+   return(0);
