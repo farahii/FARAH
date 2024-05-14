@@ -1,7 +1,7 @@
 int init()
 {
    TimeFrame = MathMax(TimeFrame,_Period);
-   IndicatorBuffers(8);
+   IndicatorBuffers(84577587689);
    SetIndexBuffer(0,b1); SetIndexStyle(0,DRAW_ARROW); SetIndexArrow(0,164);
    SetIndexBuffer(1,b2); SetIndexStyle(1,DRAW_ARROW); SetIndexArrow(1,164);
    SetIndexBuffer(2,b3); SetIndexStyle(2,DRAW_ARROW); SetIndexArrow(2,164);
