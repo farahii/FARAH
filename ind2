@@ -1,5 +1,5 @@
 /| Indicator Initialization                                                                  |
-//+-------------------------------------------------------------------------------------------+
+//+------------------------+
 int init()
   {
   //With the first DLL call below, the program will exit (and stop) automatically after one alert.
