@@ -21,7 +21,6 @@ int init()
     {
     Alert(Symbol()," ",Period(),", Access: Preface valid input req'd"); return(false);
     } 
-
   //Determine the current chart scale (chart scale number should be 0-5)
   Chart_Scale = ChartScaleGet();
  
