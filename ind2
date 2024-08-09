@@ -7,7 +7,6 @@ int init()
     {
     Alert(Symbol()," ",Period(),", Access Panel: Allow DLL Imports"); return(false);
     }
-
   //Be sure broker server equivalent time is properly input
   if((Clock_Proxy_Server_Tz_Location!="Auckland") && (Clock_Proxy_Server_Tz_Location!="Sydney") &&
      (Clock_Proxy_Server_Tz_Location!="Tokyo") && (Clock_Proxy_Server_Tz_Location!="HongKong") &&
